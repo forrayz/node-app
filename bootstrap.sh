@@ -21,8 +21,7 @@ DB_CONTAINER_NAME=$ENVIRONMENT_PREFIX"_db_1"
 
 docker-compose --compatibility -p $ENVIRONMENT_PREFIX up --force-recreate --no-deps --detach 
 
-./wait-for-healthy-container.sh $TER_DB_CONTAINER_NAME 10
-docker exec ${ENVIRONMENT_PREFIX}_app_1 sh -c "node -version"
+docker exec ${ENVIRONMENT_PREFIX}_app_1 sh -c "node --version"
 docker network connect ${ENVIRONMENT_PREFIX}_default nginx || true
 
 
