@@ -20,8 +20,7 @@ services:
     volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules
-    networks:
-      - app-network
+    
     command: ./wait-for.sh db:27017 -- /home/node/app/node_modules/.bin/nodemon app.js
     depends_on: db
 
@@ -35,8 +34,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
     volumes:
       - dbdata:/data/db
-    networks:
-      - app-network
+    
     ports: 0:27017/tcp
   
   adminer:
@@ -62,9 +60,7 @@ services:
        - "log_volume:/web"
      depends_on: 
       - ter-app
-networks:
-  app-network:
-    driver: bridge
+
 
 volumes:
   dbdata:
