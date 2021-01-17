@@ -23,6 +23,7 @@ services:
     networks:
       - app-network
     command: ./wait-for.sh db:27017 -- /home/node/app/node_modules/.bin/nodemon app.js
+    depends_on: db
 
   db:
     image: mongo:4.1.8-xenial
@@ -36,7 +37,31 @@ services:
       - dbdata:/data/db
     networks:
       - app-network
-
+    ports: 0:27017/tcp
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 0:8080
+    links:
+      - db
+    depends_on: 
+      - db
+    healthcheck:
+      test: curl -f http://localhost:8080 || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 5
+  
+  log:
+     image: halverneus/static-file-server:latest
+     ports:
+      - 0:8080
+     volumes:
+       - "log_volume:/web"
+     depends_on: 
+      - ter-app
 networks:
   app-network:
     driver: bridge
@@ -44,3 +69,4 @@ networks:
 volumes:
   dbdata:
   node_modules:
+  log_volume:
