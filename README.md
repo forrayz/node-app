@@ -25,11 +25,6 @@ http://localhost:1000/
 
 
 
-
-
-
-
-
 ## 5 misc commands
 ##### 5.1 FULL gyalu :)
 ```bash
