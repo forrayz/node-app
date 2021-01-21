@@ -1,4 +1,4 @@
-# node-app
+# node-app n8n
 
 ## for local testing 
 add this to /etc/localhost
@@ -22,7 +22,6 @@ docker-compose --file docker-host.yaml up --detach
 
 ## now visit Landing page
 http://localhost:1000/
-
 
 
 ## 5 misc commands
