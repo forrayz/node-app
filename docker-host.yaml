@@ -4,9 +4,9 @@ services:
   nginx:
     image: nginx
     hostname: "nginx"
-    container_name: "nigix"
+    container_name: "nginx"
     ports:
-      - "80:8080"
+      - "80:80"
   
   portainer:
     image: portainer/portainer
@@ -23,9 +23,11 @@ services:
   service-discovery:
     image: halverneus/static-file-server:latest
     hostname: service-discovery
-    container_name: service_discovery
+    container_name: service-discovery
     volumes:
      - service-discovery-volume:/web
+    ports: 
+      - 1000:8080/tcp
   
 volumes:
   portainer_data:
