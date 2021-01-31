@@ -7,13 +7,13 @@ add this to /etc/localhost
 127.0.0.1 localhost n8n.development.localhost.local adminer.development.localhost.local log.development.localhost.local 
 ```
 
-## bring up docker host helper containers
+## bring up docker host helper containers (service discovery and nginx)
 
 ```
 ./infra-layer.sh
 ```
 
-## fire up example strack
+## fire up example stracks development and production
 
 ```
 ./app-layer.sh development localhost.local
