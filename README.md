@@ -10,14 +10,14 @@ add this to /etc/localhost
 ## bring up docker host helper containers
 
 ```
-docker-compose --file docker-host.yaml up --detach
+./infra-layer.sh
 ```
 
 ## fire up example strack
 
 ```
-./bootstrap.sh development localhost.local
-./bootstrap.sh production localhost.local
+./app-layer.sh development localhost.local
+./app-layer.sh production localhost.local
 ```
 
 ## now visit Landing page
