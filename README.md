@@ -24,6 +24,13 @@ add this to /etc/localhost
 http://localhost:1000/
 
 
+## bring down cleanup stack
+
+```bash
+./cleanup.sh development
+./cleanup.sh production
+```
+
 ## 5 misc commands
 ##### 5.1 FULL gyalu :)
 ```bash
