@@ -2,9 +2,11 @@
 set -o errexit
 set -o pipefail
 set -o nounset
-echo "##############################################"
-echo "#     bootstrap.sh   BASH scipt              #"
-echo "##############################################"
+echo "######################################################"
+echo "#          app-layer.sh   BASH scipt                 #"
+echo "usage      ./app-layer.sh StackName DomainPrefix     #"
+echo "example:   ./app-kayer.sh development localhost.local#"
+echo "##############################################x#######"
 sed -n '/MainConfigBegins/,/MainConfigEnds/p' .env > bootstrap.env
 source bootstrap.env
 
@@ -32,4 +34,3 @@ docker logs ${ENVIRONMENT_PREFIX}_n8n_1
 
 docker-compose -p $ENVIRONMENT_PREFIX restart
 docker-compose -p $ENVIRONMENT_PREFIX ps
-
