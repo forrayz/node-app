@@ -27,7 +27,7 @@ http://localhost:1000/
 ## bring down cleanup stack
 
 ```bash
-./clea-stack.sh development
+./clean-stack.sh development
 ./clean-stack.sh production
 ```
 
